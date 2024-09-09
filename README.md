@@ -2,15 +2,15 @@
 
 The **SmartGlove** is an innovative wearable device designed to recognize hand gestures and convert them into audio commands, as well as control home automation systems. Utilizing advanced flex sensors and a microcontroller, the SmartGlove captures the precise movements of the user's fingers and translates these gestures into specific audio outputs. This cutting-edge technology enables seamless communication for individuals with speech impairments and offers intuitive control over smart home devices.
 
-## Weekly Updates
+# Weekly Updates
 
-# Week 1: Microcontroller and Machine Learning Model Research
+## Week 1: Microcontroller and Machine Learning Model Research
 
 In the first week, I focused on researching the appropriate microcontroller and machine learning (ML) model for the SmartGlove project. After evaluating several options, I decided to use the **ESP32** microcontroller due to its powerful processing capabilities and suitability for running machine learning models.
 
 In parallel, I explored various ML models and ultimately chose **TensorFlow Lite** for training and deploying the gesture recognition model. TensorFlow Lite is a lightweight version of TensorFlow, designed to run on resource-constrained devices like microcontrollers. It provides the necessary tools to optimize ML models for low-latency and efficient inference on edge devices, making it an ideal choice for the SmartGlove.
 
-# Week 2: Flex Sensor and Microcontroller Simulation
+## Week 2: Flex Sensor and Microcontroller Simulation
 
 During the second week, I created a simulation using Tinkercad to explore how a flex sensor interacts with a microcontroller, specifically an Arduino board, and how the flex sensor's varying resistance can control the lighting of LEDs.
 
