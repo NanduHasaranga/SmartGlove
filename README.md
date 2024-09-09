@@ -10,7 +10,7 @@ In the first week, I focused on researching the appropriate microcontroller and 
 
 In parallel, I explored various ML models and ultimately chose **TensorFlow Lite** for training and deploying the gesture recognition model. TensorFlow Lite is a lightweight version of TensorFlow, designed to run on resource-constrained devices like microcontrollers. It provides the necessary tools to optimize ML models for low-latency and efficient inference on edge devices, making it an ideal choice for the SmartGlove.
 
-![Esp32](https://github.com/user-attachments/assets/959d1f25-8d13-4980-a331-06bed3681f25)
+![Esp32](https://github.com/user-attachments/assets/5f861c8b-3c01-4997-b798-b858e388d406)
 
 ## Week 2: Flex Sensor and Microcontroller Simulation
 
