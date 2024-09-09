@@ -16,6 +16,8 @@ In parallel, I explored various ML models and ultimately chose **TensorFlow Lite
 
 During the second week, I created a simulation using Tinkercad to explore how a flex sensor interacts with a microcontroller, specifically an Arduino board, and how the flex sensor's varying resistance can control the lighting of LEDs.
 
+![Screenshot 2024-09-09 165151](https://github.com/user-attachments/assets/9f956720-9e3a-4f3e-9526-d6c91a29007a)
+
 #### Simulation Overview:
 The simulation demonstrates how a flex sensor, connected to an Arduino Uno, can be used to control multiple LEDs based on the sensor's bending degree. Below is a breakdown of what the simulation represents:
 
