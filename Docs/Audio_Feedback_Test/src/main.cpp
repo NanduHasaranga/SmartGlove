@@ -12,8 +12,8 @@ void setup() {
 void loop() {
   flexValue1 = analogRead(flexPin1);
   flexValue2 = analogRead(flexPin2);
-  Serial.println(flexValue1);  // Print the sensor value to the Serial Monitor
+  Serial.print(flexValue1);  // Print the sensor value to the Serial Monitor
   Serial.print(",");
   Serial.println(flexValue2);
-  delay(1000);
+  delay(100);
 }
