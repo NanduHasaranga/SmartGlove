@@ -1,7 +1,10 @@
 #include <Arduino.h>
 
-int flexPin = 34;  // Analog pin where the sensor is connected
-int flexValue;
+int flexPin1 = 34;  // Analog pin where the sensor is connected
+int flexPin2 = 35;
+int flexValue1, flexValue2;
+
+
 
 void setup() {
   Serial.begin(115200);
@@ -9,7 +12,9 @@ void setup() {
 }
 
 void loop() {
-  flexValue = analogRead(flexPin);
-  Serial.println(flexValue);  // Print the sensor value to the Serial Monitor
-  delay(100);
+  flexValue1 = analogRead(flexPin1);
+  flexValue2 = analogRead(flexPin2);
+  Serial.println(flexValue1);  // Print the sensor value to the Serial Monitor
+  Serial.println(flexValue2);
+  delay(1000);
 }
