@@ -6,9 +6,9 @@ import time
 pygame.mixer.init()
 
 # Load audio tracks
-audio1 = 'src\SoundTrack\audio1.mp3'
-audio2 = 'src\SoundTrack\audio2.mp3'
-audio3 = 'src\SoundTrack\audio3.mp3'
+audio1 = 'src\SoundTrack\One_Sound.mp3'
+audio2 = 'src\SoundTrack\Two_Sound.mp3'
+audio3 = 'src\SoundTrack\Three_Sound.mp3'
 
 # Open the serial port
 ser = serial.Serial('COM3', 115200, timeout=1)
@@ -35,16 +35,16 @@ while True:
 
                 # Determine which audio to play based on the sensor values
                 if sensor1_value < 1000 and sensor2_value > 1000 and not pygame.mixer.music.get_busy():
-                    #play_audio(audio1)
-                    #is_playing = True
+                    play_audio(audio1)
+                    is_playing = True
                     print(1);
                 elif sensor1_value > 1000 and sensor2_value < 1000 and not pygame.mixer.music.get_busy():
-                    #play_audio(audio2)
-                    #is_playing = True
+                    play_audio(audio2)
+                    is_playing = True
                     print(2);
                 elif sensor1_value < 1000 and sensor2_value < 1000 and not pygame.mixer.music.get_busy():
-                    #play_audio(audio3)
-                    #is_playing = True
+                    play_audio(audio3)
+                    is_playing = True
                     print(3);
 
         # Reset is_playing flag when music stops
