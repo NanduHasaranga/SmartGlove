@@ -2,43 +2,60 @@ import serial
 import pygame
 import time
 
-# Initialize pygame mixer for MP3 playback
+# Initialize the Pygame mixer
 pygame.mixer.init()
 
-# Load the MP3 file
-pygame.mixer.music.load('src\SoundTrack\hello.mp3')
+# Load audio tracks
+audio1 = 'src\SoundTrack\audio1.mp3'
+audio2 = 'src\SoundTrack\audio2.mp3'
+audio3 = 'src\SoundTrack\audio3.mp3'
 
-# Open serial connection with ESP32 (Adjust 'COM3' to your serial port)
+# Open the serial port
 ser = serial.Serial('COM3', 115200, timeout=1)
 
-# Variable to track whether the sound is playing
 is_playing = False
+
+def play_audio(file):
+    """Play the specified audio file."""
+    pygame.mixer.music.load(file)
+    pygame.mixer.music.play()
 
 while True:
     try:
-        # Read serial data from ESP32
         if ser.in_waiting > 0:
-            analog_value = ser.readline().decode('utf-8').strip()
-            if analog_value.isdigit():
-                analog_value = int(analog_value)
+            # Read and decode sensor inputs
+            sensor_data = ser.readline().decode('utf-8').strip()
+            sensor_values = sensor_data.split(",")  # Expecting data in 'sensor1,sensor2' format
 
-                print(f"Analog Value: {analog_value}")
+            if len(sensor_values) == 2 and all(val.isdigit() for val in sensor_values):
+                sensor1_value = int(sensor_values[0])
+                sensor2_value = int(sensor_values[1])
 
-                # Check if the analog value is smaller than 1500 and the track is not already playing
-                if analog_value < 1500 and not pygame.mixer.music.get_busy():
-                    # Play the sound if it's not already playing
-                    pygame.mixer.music.play()
-                    is_playing = True  # Mark as playing
+                print(f"Sensor1: {sensor1_value}, Sensor2: {sensor2_value}")
 
-        # Check if the music finished playing
+                # Determine which audio to play based on the sensor values
+                if sensor1_value < 1000 and sensor2_value > 1000 and not pygame.mixer.music.get_busy():
+                    #play_audio(audio1)
+                    #is_playing = True
+                    print(1);
+                elif sensor1_value > 1000 and sensor2_value < 1000 and not pygame.mixer.music.get_busy():
+                    #play_audio(audio2)
+                    #is_playing = True
+                    print(2);
+                elif sensor1_value < 1000 and sensor2_value < 1000 and not pygame.mixer.music.get_busy():
+                    #play_audio(audio3)
+                    #is_playing = True
+                    print(3);
+
+        # Reset is_playing flag when music stops
         if is_playing and not pygame.mixer.music.get_busy():
-            # Sound finished, mark it as stopped
             is_playing = False
 
-        time.sleep(0.1)  # Add a short delay for stability
+        time.sleep(0.1)
+
     except KeyboardInterrupt:
         break
 
-# Stop the music and close the serial connection
+# Stop the music and close the serial port on exit
 pygame.mixer.music.stop()
 ser.close()
