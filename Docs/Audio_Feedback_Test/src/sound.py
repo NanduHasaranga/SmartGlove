@@ -32,15 +32,15 @@ while True:
                 print(f"Sensor1: {sensor1_value}, Sensor2: {sensor2_value}")
 
                 # Determine which audio to play based on the sensor values
-                if sensor1_value < 1300 and sensor2_value < 1300 and not pygame.mixer.music.get_busy():
+                if sensor1_value < 1200 and sensor2_value < 1200 and not pygame.mixer.music.get_busy():
                     play_audio(audio3)
                     is_playing = True
                     print(3);
-                elif sensor1_value > 1300 and sensor2_value < 1300 and not pygame.mixer.music.get_busy():
+                elif sensor1_value > 1200 and sensor2_value < 1200 and not pygame.mixer.music.get_busy():
                     play_audio(audio2)
                     is_playing = True
                     print(2);
-                elif sensor1_value < 1300 and sensor2_value > 1300 and not pygame.mixer.music.get_busy():
+                elif sensor1_value < 1200 and sensor2_value > 1200 and not pygame.mixer.music.get_busy():
                     play_audio(audio1)
                     is_playing = True
                     print(1);
