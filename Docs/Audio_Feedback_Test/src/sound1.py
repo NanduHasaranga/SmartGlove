@@ -19,7 +19,7 @@ while True:
 
                 print(f"Analog Value: {analog_value}")
 
-                if analog_value < 1000 and not pygame.mixer.music.get_busy():
+                if analog_value < 1500 and not pygame.mixer.music.get_busy():
                     pygame.mixer.music.play()
                     is_playing = True
 
